@@ -350,10 +350,6 @@ MigrationBackup/
 .ionide/
 
 # カスタム設定
-Assemblies/
-# オープンソースのDLLは管理対象に含める
-!Src/Assemblies/0Harmony.dll
-!Src/Assemblies/Mono.Cecil.dll
-!Src/Assemblies/MonoMod.RuntimeDetour.dll
-!Src/Assemblies/MonoMod.Utils.dll
-!Src/Assemblies/Newtonsoft.Json.dll
+BattleAssistGift/Assemblies/*.dll
+BattleAssistGift/Assemblies/About OSS.md
+Lib/
