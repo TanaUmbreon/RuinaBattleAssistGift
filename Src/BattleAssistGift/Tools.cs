@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 using BattleAssistGift.Refrection;
-using HarmonyLib;
 using TMPro;
 using UI;
 using UnityEngine;
@@ -12,12 +9,18 @@ namespace BattleAssistGift
 {
     public static class Tools
     {
-		public static void SetAlarmText(string alarmtype, UIAlarmButtonType btnType = UIAlarmButtonType.Default, ConfirmEvent confirmFunc = null, params object[] args)
+		/// <summary>
+		/// アラーム テキストを画面上にポップアップさせます。
+		/// </summary>
+		/// <param name="textId">表示するアラーム テキストのテキスト ID。</param>
+		/// <param name="buttonType">ユーザーに押させるボタンの種類。省略した場合は OK ボタンを使用します。</param>
+		/// <param name="confirmEvent">confirmEvent (OK 時に呼び出されるイベント？)。省略した場合は null。</param>
+		/// <param name="args">アラーム テキストで使用されるプレース ホルダを置き換える値の配列。</param>
+		public static void ShowAlarmText(string textId, UIAlarmButtonType buttonType = UIAlarmButtonType.Default, ConfirmEvent confirmEvent = null, params object[] args)
 		{
 			if (UIAlarmPopup.instance.IsOpened()) { UIAlarmPopup.instance.Close(); }
 
-			Assembly assembly = GetAssembly("Assembly-CSharp");
-			new EnumControler(assembly, "UI.UIAlarmPopup+UIAlarmAnimState")
+			new EnumControler(LoadedAssembly.AssemblyCSharp, "UI.UIAlarmPopup+UIAlarmAnimState")
 				.GetValue("Normal", out object value);
 
 			var uiAlarmPopup = new InstanceControler(UIAlarmPopup.instance)
@@ -40,48 +43,27 @@ namespace BattleAssistGift
 
 			uiAlarmPopup
 				.SetField("currentAlarmType", UIAlarmType.Default)
-				.SetField("buttonNumberType", btnType)
+				.SetField("buttonNumberType", buttonType)
 				.SetField("currentmode", AnimatorUpdateMode.Normal)
 				.GetField("anim", out Animator anim)
 				.GetField("txt_alarm", out TextMeshProUGUI txtAlarm);
 			anim.updateMode = AnimatorUpdateMode.Normal;
+			txtAlarm.text = TextDataModel.GetText(textId, args ?? Array.Empty<object>());
 
-			if (args == null)
-			{
-				txtAlarm.text = TextDataModel.GetText(alarmtype, Array.Empty<object>());
-			}
-			else
-			{
-				txtAlarm.text = TextDataModel.GetText(alarmtype, args);
-			}
-
-			typeof(UIAlarmPopup).GetField("_confirmEvent", AccessTools.all).SetValue(UIAlarmPopup.instance, confirmFunc);
-			buttonRoots[(int)btnType].gameObject.SetActive(true);
+			uiAlarmPopup.SetField("_confirmEvent", confirmEvent);
+			buttonRoots[(int)buttonType].gameObject.SetActive(true);
 			UIAlarmPopup.instance.Open();
-			if (btnType == UIAlarmButtonType.Default)
+
+			switch (buttonType)
 			{
-				UIControlManager.Instance.SelectSelectableForcely(UIAlarmPopup.instance.OkButton, false);
-			}
-			else
-			{
-				if (btnType == UIAlarmButtonType.YesNo)
-				{
+				case UIAlarmButtonType.Default:
+					UIControlManager.Instance.SelectSelectableForcely(UIAlarmPopup.instance.OkButton, false);
+					break;
+				case UIAlarmButtonType.YesNo:
 					uiAlarmPopup.GetField("yesButton", out UICustomSelectable yesButton);
 					UIControlManager.Instance.SelectSelectableForcely(yesButton, false);
-				}
+					break;
 			}
-		}
-
-		/// <summary>
-		/// 実行中のアプリケーションで読み込まれているアセンブリから、指定した名前に一致するアセンブリを取得します。
-		/// </summary>
-		/// <param name="name">取得するアセンブリの簡易名。通常は、アセンブリ ファイルの名前から拡張子を取り除いたものになります。</param>
-		/// <returns></returns>
-		private static Assembly GetAssembly(string name)
-		{
-			Assembly assembly = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(a => a.GetName().Name == name);
-			if (assembly == null) { throw new DllNotFoundException($"指定した名前 '{name}' に一致するアセンブリが見つかりません。"); }
-			return assembly;
-		}
+        }
 	}
 }

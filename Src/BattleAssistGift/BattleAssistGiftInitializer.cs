@@ -46,7 +46,7 @@ namespace BattleAssistGift
         {
             try
             {
-                Tools.SetAlarmText(ExtraTextID.GotGifts);
+                Tools.ShowAlarmText(ExtraTextID.GotGifts);
             }
             catch (Exception ex)
             {
