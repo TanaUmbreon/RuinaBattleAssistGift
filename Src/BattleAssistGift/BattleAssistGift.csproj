@@ -68,6 +68,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Refrection\LoadedAssembly.cs" />
     <Compile Include="Refrection\EnumControler.cs" />
     <Compile Include="Refrection\InstanceControler.cs" />
     <Compile Include="Tools.cs" />
