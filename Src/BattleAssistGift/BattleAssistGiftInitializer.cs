@@ -12,9 +12,6 @@ namespace BattleAssistGift
     [Harmony]
     public class BattleAssistGiftInitializer : ModInitializer
     {
-        /// <summary>設定ファイルのパス</summary>
-        private static readonly string SettingsFilePath = Path.Combine(AssemblyInfo.DirectoryPath, @"..\ModSettings.json");
-
         public override void OnInitializeMod()
         {
             try
@@ -35,9 +32,9 @@ namespace BattleAssistGift
         /// </summary>
         private void CreateSettingsFile()
         {
-            if (File.Exists(SettingsFilePath)) { return; }
+            if (File.Exists(ReferencePath.ModSettingsFile)) { return; }
 
-            File.AppendAllText(SettingsFilePath, Resources.ModSettings);
+            File.AppendAllText(ReferencePath.ModSettingsFile, Resources.ModSettings);
         }
 
         [HarmonyPatch(typeof(LibraryModel), "LoadFromSaveData")]
@@ -53,6 +50,5 @@ namespace BattleAssistGift
                 Log.Instance.ErrorOnExceptionThrown(ex);
             }
         }
-
 	}
 }
