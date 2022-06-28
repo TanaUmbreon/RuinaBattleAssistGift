@@ -352,4 +352,6 @@ MigrationBackup/
 # カスタム設定
 BattleAssistGift/Assemblies/*.dll
 BattleAssistGift/Assemblies/About OSS.md
-Lib/
+Lib/*.dll
+Lib/*.xml
+!Lib/Assembly-CSharp.xml
