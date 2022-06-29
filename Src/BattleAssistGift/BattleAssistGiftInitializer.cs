@@ -1,7 +1,10 @@
 ﻿#pragma warning disable IDE0051 // 使用されていないプライベート メンバーを削除する
 
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Xml.Serialization;
 using BattleAssistGift.Keys;
 using BattleAssistGift.Properties;
 using HarmonyLib;
@@ -23,6 +26,7 @@ namespace BattleAssistGift
                 var harmony = new Harmony(AssemblyInfo.Name);
                 harmony.PatchAll();
 
+                CustomGiftStartup.LoadGiftInfo(ReferencePath.GiftInfoFile);
                 CreateSettingsFile();
             }
             catch (Exception ex)
@@ -42,6 +46,49 @@ namespace BattleAssistGift
         }
 
         #endregion
+
+        /// <summary>
+        /// カスタム戦闘表象のスタートアップを行います。
+        /// </summary>
+        private static class CustomGiftStartup
+        {
+            /// <summary>
+            /// 指定した戦闘表象情報ファイル (GiftInfo.xml) を読み込みます。
+            /// </summary>
+            /// <param name="path">読み込む戦闘表象情報ファイルのパス。</param>
+            public static void LoadGiftInfo(string path)
+            {
+                if (!File.Exists(path)) { throw new FileNotFoundException($"戦闘表象情報ファイル '{path}' が見つかりません。"); }
+
+                GiftXmlRoot root = LoadGiftXmlRoot(path);
+                AddGifts(root.giftXmlList);
+            }
+
+            private static GiftXmlRoot LoadGiftXmlRoot(string path)
+            {
+                var serializer = new XmlSerializer(typeof(GiftXmlRoot));
+                using (var reader = new StringReader(path))
+                {
+                    return (GiftXmlRoot)serializer.Deserialize(reader);
+                }
+            }
+
+            private static void AddGifts(IEnumerable<GiftXmlInfo> gifts)
+            {
+                List<GiftXmlInfo> addedGifts = Singleton<GiftXmlList>.Instance.GetAvailableList();
+
+                foreach (GiftXmlInfo adding in gifts)
+                {
+                    var added = addedGifts.FirstOrDefault(g => g.id == adding.id);
+                    if (added != null)
+                    {
+                        addedGifts.Remove(added);
+                    }
+
+                    addedGifts.Add(adding);
+                }
+            }
+        }
 
         #region HarmonyPatch による割り込み処理 (戦闘表象の入手)
 

@@ -10,5 +10,9 @@ namespace BattleAssistGift.Keys
         /// <summary>MOD 設定ファイルのパス</summary>
         public static readonly string ModSettingsFile = Path.Combine(
             AssemblyInfo.DirectoryPath, @"..\ModSettings.json");
+
+        /// <summary>戦闘表象情報ファイルのパス</summary>
+        public static readonly string GiftInfoFile = Path.Combine(
+            AssemblyInfo.DirectoryPath, @"..\Data\GiftInfo.xml");
     }
 }
