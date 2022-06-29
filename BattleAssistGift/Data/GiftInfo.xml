@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<GiftXmlRoot>
+  <Gift ID="197000">
+    <Name>MoonlightBlessing</Name>
+    <Resource>custom_MoonlightBlessing</Resource>
+    <Position>HairAccessory</Position>
+    <Count>0</Count>
+    <Passive>197000</Passive>
+  </Gift>
+</GiftXmlRoot>
