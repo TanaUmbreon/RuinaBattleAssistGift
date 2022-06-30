@@ -9,6 +9,7 @@
 - `UnityEngine.CoreModule.dll` : ゲーム本体からコピペして配置 (\*1)
 - `UnityEngine.AnimationModule.dll` : ゲーム本体からコピペして配置 (\*1)
 - `0Harmony.dll` : 「BaseMod for Workshop」からコピペして配置 (\*2)
+- `BaseMod.dll` : 「BaseMod for Workshop」からコピペして配置 (\*2)
 - `Mono.Cecil.dll` : 「BaseMod for Workshop」からコピペして配置 (\*2)
 - `MonoMod.RuntimeDetour.dll` : 「BaseMod for Workshop」からコピペして配置 (\*2)
 - `MonoMod.Utils.dll` : 「BaseMod for Workshop」からコピペして配置 (\*2)
@@ -16,6 +17,6 @@
 
 \*1: Steamでゲーム本体を購入してダウンロードすると、一般的には `C:\Program Files (x86)\Steam\steamapps\common\Library Of Ruina\LibraryOfRuina_Data\Managed` フォルダーにこれらのDLLがインストールされます。
 
-\*2: Steamワークショップで公開されているMOD「[BaseMod for Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=2603522001)」をサブスクライブすると、一般的には `C:\Program Files (x86)\Steam\steamapps\workshop\content\1256670\2603522001\Assemblies` フォルダーにこれらのDLLがインストールされます。ゲーム本体側でこのMODを有効にしてプレイする必要はなく、DLLのコピーのみを目的としています。
+\*2: Steamワークショップで公開されているMOD「[BaseMod for Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=2603522001)」をサブスクライブすると、一般的には `C:\Program Files (x86)\Steam\steamapps\workshop\content\1256670\2603522001\Assemblies` フォルダーにこれらのDLLがインストールされます。
 
-\*3: JamesNK/Newtonsoft.Jsonリポジトリの [「Releases」ページ](https://github.com/JamesNK/Newtonsoft.Json/releases) のAssetsからZIPファイルをダウンロードして解凍し、 `Bin\net20` フォルダー直下にあるDLLファイルを使用します。DLLのバージョンは「13.0.1」を使用していますが、このライブラリに破壊的な変更がない限りはセキュリティの観点上から最新版を使用してください。
+\*3: JamesNK/Newtonsoft.Jsonリポジトリの [「Releases」ページ](https://github.com/JamesNK/Newtonsoft.Json/releases) のAssetsからZIPファイルをダウンロードして解凍し、 `Bin\net20` フォルダー直下にあるDLLファイルを使用します。DLLのバージョンは「13.0.1」を使用していますが、セキュリティの観点上から破壊的な変更がない限りは最新版を使用してください。
