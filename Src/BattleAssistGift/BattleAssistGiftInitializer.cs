@@ -73,7 +73,7 @@ namespace BattleAssistGift
                 {
                     if (!__instance.isSephirah) { return; }
 
-                    GiftModel addedGift = __instance.giftInventory.AddGift(GiftID.MoonlightRing);
+                    GiftModel addedGift = __instance.giftInventory.AddGift(GiftID.MoonlightBlessing);
                     if (addedGift != null)
                     {
                         _hasGotGift = true;
