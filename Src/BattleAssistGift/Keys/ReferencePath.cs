@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using BattleAssistGift.Refrection;
 
 namespace BattleAssistGift.Keys
 {
@@ -10,13 +11,5 @@ namespace BattleAssistGift.Keys
         /// <summary>MOD 設定ファイルのパス</summary>
         public static readonly string ModSettingsFile = Path.Combine(
             AssemblyInfo.DirectoryPath, @"..\ModSettings.json");
-
-        /// <summary>戦闘表象情報ファイルのパス</summary>
-        public static readonly string GiftInfoFile = Path.Combine(
-            AssemblyInfo.DirectoryPath, @"..\Data\GiftInfo.xml");
-        
-        /// <summary>戦闘表象ローカライズ ファイルのパス</summary>
-        public static readonly string GiftTextFile = Path.Combine(
-            AssemblyInfo.DirectoryPath, @"..\Data\GiftInfo.xml");
     }
 }
