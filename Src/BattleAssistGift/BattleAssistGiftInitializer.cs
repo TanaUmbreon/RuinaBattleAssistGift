@@ -7,7 +7,9 @@ using System.Linq;
 using System.Xml.Serialization;
 using BattleAssistGift.Keys;
 using BattleAssistGift.Properties;
+using BattleAssistGift.Refrection;
 using HarmonyLib;
+using LOR_XML;
 
 namespace BattleAssistGift
 {
@@ -27,6 +29,7 @@ namespace BattleAssistGift
                 harmony.PatchAll();
 
                 CustomGiftStartup.LoadGiftInfo(ReferencePath.GiftInfoFile);
+                CustomGiftStartup.LoadGiftText(ReferencePath.GiftTextFile);
                 CreateSettingsFile();
             }
             catch (Exception ex)
@@ -53,26 +56,33 @@ namespace BattleAssistGift
         private static class CustomGiftStartup
         {
             /// <summary>
-            /// 指定した戦闘表象情報ファイル (GiftInfo.xml) を読み込みます。
+            /// 指定した戦闘表象情報ファイルを読み込みます。戦闘表象 ID が重複する場合は末尾に出現した要素で上書きします。
             /// </summary>
             /// <param name="path">読み込む戦闘表象情報ファイルのパス。</param>
             public static void LoadGiftInfo(string path)
             {
                 if (!File.Exists(path)) { throw new FileNotFoundException($"戦闘表象情報ファイル '{path}' が見つかりません。"); }
 
-                GiftXmlRoot root = LoadGiftXmlRoot(path);
+                GiftXmlRoot root = LoadXml<GiftXmlRoot>(path);
                 AddGifts(root.giftXmlList);
             }
 
-            private static GiftXmlRoot LoadGiftXmlRoot(string path)
+            /// <summary>
+            /// 指定した戦闘表象ローカライズ ファイルを読み込みます。戦闘表象ローカライズ ID が重複する場合は末尾に出現した要素で上書きします。
+            /// </summary>
+            /// <param name="path"></param>
+            public static void LoadGiftText(string path)
             {
-                var serializer = new XmlSerializer(typeof(GiftXmlRoot));
-                using (var reader = new StringReader(path))
-                {
-                    return (GiftXmlRoot)serializer.Deserialize(reader);
-                }
+                if (!File.Exists(path)) { throw new FileNotFoundException($"戦闘表象ローカライズ ファイル '{path}' が見つかりません。"); }
+
+                GiftTextRoot root = LoadXml<GiftTextRoot>(path);
+                AddGiftTexts(root.giftList);
             }
 
+            /// <summary>
+            /// 指定した戦闘表象情報を読み込み済みリストに追加します。戦闘表象 ID が重複する場合は末尾に出現した要素で上書きします。
+            /// </summary>
+            /// <param name="gifts">追加する戦闘表象情報のコレクション。</param>
             private static void AddGifts(IEnumerable<GiftXmlInfo> gifts)
             {
                 List<GiftXmlInfo> addedGifts = Singleton<GiftXmlList>.Instance.GetAvailableList();
@@ -86,6 +96,36 @@ namespace BattleAssistGift
                     }
 
                     addedGifts.Add(adding);
+                }
+            }
+
+            /// <summary>
+            /// 指定した戦闘表象ローカライズを読み込み済みリストに追加します。戦闘表象ローカライズ ID が重複する場合は末尾に出現した要素で上書きします。
+            /// </summary>
+            /// <param name="texts">追加する戦闘表象ローカライズのコレクション。</param>
+            private static void AddGiftTexts(IEnumerable<GiftText> texts)
+            {
+                new InstanceControler(Singleton<GiftDescXmlList>.Instance)
+                    .GetField("_dictionary", out Dictionary<string, GiftText> dictionary);
+
+                foreach (GiftText text in texts)
+                {
+                    dictionary[text.id] = text;
+                }
+            }
+
+            /// <summary>
+            /// 指定したパスの XML ファイルを読み込み、指定した型にデシリアライズして返します。
+            /// </summary>
+            /// <typeparam name="T">デシリアライズする型。</typeparam>
+            /// <param name="path">読み込む XML ファイルのパス。</param>
+            /// <returns>デシリアライズされた XML ファイルのデータ。</returns>
+            private static T LoadXml<T>(string path)
+            {
+                var serializer = new XmlSerializer(typeof(T));
+                using (var reader = new StringReader(path))
+                {
+                    return (T)serializer.Deserialize(reader);
                 }
             }
         }

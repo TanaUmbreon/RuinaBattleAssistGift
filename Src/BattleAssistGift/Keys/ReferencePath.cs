@@ -14,5 +14,9 @@ namespace BattleAssistGift.Keys
         /// <summary>戦闘表象情報ファイルのパス</summary>
         public static readonly string GiftInfoFile = Path.Combine(
             AssemblyInfo.DirectoryPath, @"..\Data\GiftInfo.xml");
+        
+        /// <summary>戦闘表象ローカライズ ファイルのパス</summary>
+        public static readonly string GiftTextFile = Path.Combine(
+            AssemblyInfo.DirectoryPath, @"..\Data\GiftInfo.xml");
     }
 }
