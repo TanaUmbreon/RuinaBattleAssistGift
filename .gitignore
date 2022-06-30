@@ -355,3 +355,4 @@ BattleAssistGift/About OSS.md
 Lib/*.dll
 Lib/*.xml
 !Lib/Assembly-CSharp.xml
+!Lib/BaseMod.xml

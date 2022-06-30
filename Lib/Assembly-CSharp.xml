@@ -5545,6 +5545,50 @@
     <member name="M:GiftInventory.UnEquipAll">
       <summary></summary>
     </member>
+    <member name="T:GiftModel">
+      <summary>戦闘表象を表します。</summary>
+    </member>
+    <member name="F:GiftModel.isShowEquipGift">
+      <summary></summary>
+    </member>
+    <member name="M:GiftModel.#ctor(GiftXmlInfo)">
+      <summary></summary>
+      <param name="classInfo"></param>
+    </member>
+    <member name="M:GiftModel.CreateScripts">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:GiftModel.GetGiftClassInfoId">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:GiftModel.GetName">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:GiftModel.GetResourcePath">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="P:GiftModel.ClassInfo">
+      <summary></summary>
+    </member>
+    <member name="P:GiftModel.GiftAcquireCondition">
+      <summary></summary>
+    </member>
+    <member name="P:GiftModel.GiftDesc">
+      <summary></summary>
+    </member>
+    <member name="P:GiftModel.GiftName">
+      <summary></summary>
+    </member>
+    <member name="P:GiftModel.GiftPostfix">
+      <summary></summary>
+    </member>
+    <member name="P:GiftModel.GiftPrefix">
+      <summary></summary>
+    </member>
     <member name="T:ItemXmlDataList">
       <summary>読み込んだバトル ページの XML 情報のリストです。</summary>
     </member>
@@ -7008,6 +7052,341 @@
     <member name="M:StatBonus.AddStatBonus(StatBonus)">
       <summary></summary>
       <param name="b"></param>
+    </member>
+    <member name="T:UnitDataModel">
+      <summary>指定司書または司書補キャラクターのデータを表します。</summary>
+    </member>
+    <member name="F:UnitDataModel.aiScript">
+      <summary></summary>
+    </member>
+    <member name="F:UnitDataModel.appearanceType">
+      <summary></summary>
+    </member>
+    <member name="F:UnitDataModel.battleDialogModel">
+      <summary></summary>
+    </member>
+    <member name="F:UnitDataModel.bonusBreak">
+      <summary></summary>
+    </member>
+    <member name="F:UnitDataModel.bonusHp">
+      <summary></summary>
+    </member>
+    <member name="F:UnitDataModel.forceItemChangeLock">
+      <summary></summary>
+    </member>
+    <member name="F:UnitDataModel.gender">
+      <summary></summary>
+    </member>
+    <member name="F:UnitDataModel.giftInventory">
+      <summary>保有している戦闘表象を格納しているインベントリ</summary>
+    </member>
+    <member name="F:UnitDataModel.grade">
+      <summary></summary>
+    </member>
+    <member name="F:UnitDataModel.isSephirah">
+      <summary>指定司書キャラクターであることを示す値</summary>
+    </member>
+    <member name="F:UnitDataModel.isUnknownBattleSetting">
+      <summary></summary>
+    </member>
+    <member name="F:UnitDataModel.postfixID">
+      <summary></summary>
+    </member>
+    <member name="F:UnitDataModel.prefixID">
+      <summary></summary>
+    </member>
+    <member name="F:UnitDataModel.save_appearance">
+      <summary></summary>
+    </member>
+    <member name="F:UnitDataModel.save_AppearanceType">
+      <summary></summary>
+    </member>
+    <member name="F:UnitDataModel.save_bookInstanceId">
+      <summary></summary>
+    </member>
+    <member name="F:UnitDataModel.save_customcorebookInstanceId">
+      <summary></summary>
+    </member>
+    <member name="F:UnitDataModel.save_deck">
+      <summary></summary>
+    </member>
+    <member name="F:UnitDataModel.save_defaultBook">
+      <summary></summary>
+    </member>
+    <member name="F:UnitDataModel.save_giftInventory">
+      <summary></summary>
+    </member>
+    <member name="F:UnitDataModel.save_history">
+      <summary></summary>
+    </member>
+    <member name="F:UnitDataModel.save_name">
+      <summary></summary>
+    </member>
+    <member name="F:UnitDataModel.save_nameID">
+      <summary></summary>
+    </member>
+    <member name="F:UnitDataModel.save_postfixID">
+      <summary></summary>
+    </member>
+    <member name="F:UnitDataModel.save_prefixID">
+      <summary></summary>
+    </member>
+    <member name="F:UnitDataModel.save_script">
+      <summary></summary>
+    </member>
+    <member name="F:UnitDataModel.save_workshopSkin">
+      <summary></summary>
+    </member>
+    <member name="F:UnitDataModel.size">
+      <summary></summary>
+    </member>
+    <member name="F:UnitDataModel.textureIndex">
+      <summary></summary>
+    </member>
+    <member name="F:UnitDataModel.workshopSkin">
+      <summary></summary>
+    </member>
+    <member name="M:UnitDataModel.#ctor(System.Int32,SephirahType,System.Boolean)">
+      <summary></summary>
+      <param name="defaultBook"></param>
+      <param name="sephirah"></param>
+      <param name="isSephirahChar"></param>
+    </member>
+    <member name="M:UnitDataModel.#ctor(LorId,SephirahType,System.Boolean)">
+      <summary></summary>
+      <param name="defaultBook"></param>
+      <param name="sephirah"></param>
+      <param name="isSephirahChar"></param>
+    </member>
+    <member name="M:UnitDataModel.AddCardFromInventory(LorId)">
+      <summary></summary>
+      <param name="cardId"></param>
+      <returns></returns>
+    </member>
+    <member name="M:UnitDataModel.AddCardInDeckFromInventory(LOR_DiceSystem.DiceCardXmlInfo)">
+      <summary></summary>
+      <param name="card"></param>
+      <returns></returns>
+    </member>
+    <member name="M:UnitDataModel.CreateDeckByDeckInfo">
+      <summary></summary>
+    </member>
+    <member name="M:UnitDataModel.EmptyDeckToInventory">
+      <summary></summary>
+    </member>
+    <member name="M:UnitDataModel.EmptyDeckToInventoryAll">
+      <summary></summary>
+    </member>
+    <member name="M:UnitDataModel.EquipBook(BookModel,System.Boolean,System.Boolean)">
+      <summary></summary>
+      <param name="newBook"></param>
+      <param name="isEnemySetting"></param>
+      <param name="force"></param>
+      <returns></returns>
+    </member>
+    <member name="M:UnitDataModel.EquipBookForUI(BookModel,System.Boolean,System.Boolean)">
+      <summary></summary>
+      <param name="newBook"></param>
+      <param name="isEnemySetting"></param>
+      <param name="force"></param>
+      <returns></returns>
+    </member>
+    <member name="M:UnitDataModel.EquipCustomCoreBook(BookModel)">
+      <summary></summary>
+      <param name="custombook"></param>
+    </member>
+    <member name="M:UnitDataModel.GetCustomBookItemData">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:UnitDataModel.GetDeck">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:UnitDataModel.GetDeckAll">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:UnitDataModel.GetDeckAllList">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:UnitDataModel.GetDeckCardModelAll">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:UnitDataModel.GetDeckForBattle(System.Int32)">
+      <summary></summary>
+      <param name="index"></param>
+      <returns></returns>
+    </member>
+    <member name="M:UnitDataModel.GetDeckList">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:UnitDataModel.GetDeckSize">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:UnitDataModel.GetEmotionCardInfo(MentalState,System.Int32)">
+      <summary></summary>
+      <param name="state"></param>
+      <param name="level"></param>
+      <returns></returns>
+    </member>
+    <member name="M:UnitDataModel.GetEquippedGiftList">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:UnitDataModel.GetSaveData">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:UnitDataModel.GetStartDraw">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:UnitDataModel.InitBattleDialogByDefaultBook(LorId)">
+      <summary></summary>
+      <param name="lorId"></param>
+    </member>
+    <member name="M:UnitDataModel.IsBasicBook">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:UnitDataModel.IsBinahChangeItemLock">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:UnitDataModel.IsBlackSilenceChangeItemLock">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:UnitDataModel.IsChangeItemLock">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:UnitDataModel.IsGebura">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:UnitDataModel.IsLockUnit">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:UnitDataModel.isLockUnitForBluePrimary">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:UnitDataModel.LoadFromSaveData(GameSave.SaveData)">
+      <summary></summary>
+      <param name="data"></param>
+    </member>
+    <member name="M:UnitDataModel.MoveCardToInventory(LorId)">
+      <summary></summary>
+      <param name="cardId"></param>
+      <returns></returns>
+    </member>
+    <member name="M:UnitDataModel.ReEquipDeck">
+      <summary></summary>
+    </member>
+    <member name="M:UnitDataModel.RemoveCardInDeck(LOR_DiceSystem.DiceCardXmlInfo)">
+      <summary></summary>
+      <param name="card"></param>
+      <returns></returns>
+    </member>
+    <member name="M:UnitDataModel.ResetForBlackSilence">
+      <summary></summary>
+    </member>
+    <member name="M:UnitDataModel.ResetTempName">
+      <summary></summary>
+    </member>
+    <member name="M:UnitDataModel.SetByEnemyUnitClassInfo(EnemyUnitClassInfo)">
+      <summary></summary>
+      <param name="classInfo"></param>
+    </member>
+    <member name="M:UnitDataModel.SetCustomizingData(UnitCustomizingData)">
+      <summary></summary>
+      <param name="data"></param>
+    </member>
+    <member name="M:UnitDataModel.SetCustomName(System.String)">
+      <summary></summary>
+      <param name="txt"></param>
+    </member>
+    <member name="M:UnitDataModel.SetEnemyDropTable(EnemyUnitClassInfo)">
+      <summary></summary>
+      <param name="classInfo"></param>
+    </member>
+    <member name="M:UnitDataModel.SetEnemyEmotionList(System.Collections.Generic.List{EmotionSetInfo})">
+      <summary></summary>
+      <param name="emotionList"></param>
+    </member>
+    <member name="M:UnitDataModel.SetNameId(System.Int32)">
+      <summary></summary>
+      <param name="id"></param>
+    </member>
+    <member name="M:UnitDataModel.SetTempName(System.String)">
+      <summary></summary>
+      <param name="txt"></param>
+    </member>
+    <member name="M:UnitDataModel.SetTemporaryPlayerUnitByBook(System.Int32)">
+      <summary></summary>
+      <param name="bookId"></param>
+    </member>
+    <member name="M:UnitDataModel.SetTemporaryPlayerUnitByBook(LorId)">
+      <summary></summary>
+      <param name="bookId"></param>
+    </member>
+    <member name="P:UnitDataModel.blackSilenceBook">
+      <summary></summary>
+    </member>
+    <member name="P:UnitDataModel.bookItem">
+      <summary></summary>
+    </member>
+    <member name="P:UnitDataModel.Break">
+      <summary></summary>
+    </member>
+    <member name="P:UnitDataModel.CustomBookItem">
+      <summary></summary>
+    </member>
+    <member name="P:UnitDataModel.customizeData">
+      <summary></summary>
+    </member>
+    <member name="P:UnitDataModel.defaultBook">
+      <summary></summary>
+    </member>
+    <member name="P:UnitDataModel.DropBonus">
+      <summary></summary>
+    </member>
+    <member name="P:UnitDataModel.DropTable">
+      <summary></summary>
+    </member>
+    <member name="P:UnitDataModel.EnemyUnitId">
+      <summary></summary>
+    </member>
+    <member name="P:UnitDataModel.ExpDrop">
+      <summary></summary>
+    </member>
+    <member name="P:UnitDataModel.history">
+      <summary></summary>
+    </member>
+    <member name="P:UnitDataModel.MaxEmotionLevel">
+      <summary></summary>
+    </member>
+    <member name="P:UnitDataModel.MaxHp">
+      <summary></summary>
+    </member>
+    <member name="P:UnitDataModel.name">
+      <summary></summary>
+    </member>
+    <member name="P:UnitDataModel.nameID">
+      <summary></summary>
+    </member>
+    <member name="P:UnitDataModel.OwnerSephirah">
+      <summary></summary>
+    </member>
+    <member name="P:UnitDataModel.StartHp">
+      <summary></summary>
     </member>
   </members>
 </doc>
