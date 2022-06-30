@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Reflection;
 
-namespace BattleAssistGift
+namespace BattleAssistGift.Refrection
 {
     /// <summary>
     /// このアセンブリに関する情報を参照するユーティリティ クラスです。

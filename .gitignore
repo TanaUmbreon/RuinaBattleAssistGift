@@ -350,8 +350,8 @@ MigrationBackup/
 .ionide/
 
 # カスタム設定
-BattleAssistGift/Assemblies/*.dll
-BattleAssistGift/Assemblies/About OSS.md
+BattleAssistGift/*.dll
+BattleAssistGift/About OSS.md
 Lib/*.dll
 Lib/*.xml
 !Lib/Assembly-CSharp.xml

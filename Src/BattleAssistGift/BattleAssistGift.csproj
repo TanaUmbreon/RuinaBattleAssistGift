@@ -25,7 +25,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\BattleAssistGift\Assemblies\</OutputPath>
+    <OutputPath>..\..\BattleAssistGift\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -33,9 +33,14 @@
   <ItemGroup>
     <Reference Include="0Harmony">
       <HintPath>..\..\Lib\0Harmony.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\Lib\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="BaseMod">
+      <HintPath>..\..\Lib\BaseMod.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json">
@@ -59,7 +64,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Refrection\AssemblyInfo.cs" />
     <Compile Include="BattleAssistGiftInitializer.cs" />
     <Compile Include="Keys\ExtraTextID.cs" />
     <Compile Include="Keys\GiftID.cs" />
@@ -74,7 +79,6 @@
     <Compile Include="Refrection\LoadedAssembly.cs" />
     <Compile Include="Refrection\EnumControler.cs" />
     <Compile Include="Refrection\InstanceControler.cs" />
-    <Compile Include="Tools.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
