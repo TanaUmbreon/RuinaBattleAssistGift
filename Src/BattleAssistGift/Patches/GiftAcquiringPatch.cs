@@ -14,6 +14,8 @@ namespace BattleAssistGift.Patches
     {
         /// <summary>誰か一人でも戦闘表象を入手した事を示すフラグ</summary>
         private static bool _hasGotGift = false;
+        /// <summary>BaseMod を使用することで発生する <see cref="GiftXmlList"/> の不具合を解決した事を示すフラグ</summary>
+        private static bool _fixedGiftXmlList = false;
 
         /// <summary>
         /// 戦闘表象の入手フラグを初期化します。
@@ -26,6 +28,7 @@ namespace BattleAssistGift.Patches
             try
             {
                 _hasGotGift = false;
+                FixGiftXmlList();
                 return true;
             }
             catch (Exception ex)
@@ -33,6 +36,20 @@ namespace BattleAssistGift.Patches
                 Log.Instance.ErrorOnExceptionThrown(ex);
                 return true;
             }
+        }
+
+        /// <summary>
+        /// BaseMod を使用することで発生する、カスタム戦闘表象を参照できない不具合を解決します。
+        /// </summary>
+        private static void FixGiftXmlList()
+        {
+            if (_fixedGiftXmlList) { return; }
+
+            // カスタム戦闘表象を「GiftXmlList.Instance.GetData(int)」で参照できない不具合を解決 (2022-07-03時点で発生する不具合)
+            new InstanceControler(GiftXmlList.Instance).GetField("_list", out List<GiftXmlInfo> list);
+            GiftXmlList.Instance.Init(list);
+
+            _fixedGiftXmlList = true;
         }
 
         /// <summary>
