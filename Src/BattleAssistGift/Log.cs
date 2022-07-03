@@ -16,7 +16,7 @@ namespace BattleAssistGift
         /// <summary>タイムスタンプの書式指定文字列</summary>
         private const string TimestampFormat = "yyyy-MM-dd HH:mm:ss.fff";
         /// <summary>ログ ファイルの出力先パス</summary>
-        private readonly string FilePath = Path.Combine(AssemblyInfo.DirectoryPath, $@"..\{AssemblyInfo.Name}.log");
+        private readonly string FilePath = Path.Combine(AssemblyInfo.DirectoryPath, $"{AssemblyInfo.Name}.log");
 
         /// <summary>
         /// このクラスのインスタンスを取得します。
