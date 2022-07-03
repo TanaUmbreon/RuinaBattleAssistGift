@@ -5589,6 +5589,41 @@
     <member name="P:GiftModel.GiftPrefix">
       <summary></summary>
     </member>
+    <member name="T:GiftXmlList">
+      <summary>戦闘表象 XML データを格納するリストです。</summary>
+    </member>
+    <member name="M:GiftXmlList.#ctor">
+      <summary></summary>
+    </member>
+    <member name="M:GiftXmlList.CreateTemporaryGift(System.String,GiftPosition)">
+      <summary></summary>
+      <param name="res"></param>
+      <param name="pos"></param>
+      <returns></returns>
+    </member>
+    <member name="M:GiftXmlList.GetAvailableList">
+      <summary>利用可能な戦闘表象 XML データのリストを返します。</summary>
+      <returns>利用可能な戦闘表象 XML データのリスト。</returns>
+    </member>
+    <member name="M:GiftXmlList.GetData(System.Int32)">
+      <summary>指定した ID に一致する戦闘表象 XML データを取得します。</summary>
+      <param name="id">取得する戦闘表象 XML データの戦闘表象 ID。</param>
+      <returns>ID に一致した戦闘表象 XML データ。存在しない場合は null。</returns>
+    </member>
+    <member name="M:GiftXmlList.GetPostfix(System.Int32)">
+      <summary></summary>
+      <param name="id"></param>
+      <returns></returns>
+    </member>
+    <member name="M:GiftXmlList.GetPrefix(System.Int32)">
+      <summary></summary>
+      <param name="id"></param>
+      <returns></returns>
+    </member>
+    <member name="M:GiftXmlList.Init(System.Collections.Generic.List{GiftXmlInfo})">
+      <summary>指定した戦闘表象 XML データのリストでインスタンスを初期化します。</summary>
+      <param name="list">このインスタンスで利用できるようにする戦闘表象 XML データのリスト。</param>
+    </member>
     <member name="T:ItemXmlDataList">
       <summary>読み込んだバトル ページの XML 情報のリストです。</summary>
     </member>
