@@ -64,6 +64,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Patches\GiftAcquiringPatch.cs" />
     <Compile Include="Refrection\AssemblyInfo.cs" />
     <Compile Include="BattleAssistGiftInitializer.cs" />
     <Compile Include="Keys\ExtraTextID.cs" />
