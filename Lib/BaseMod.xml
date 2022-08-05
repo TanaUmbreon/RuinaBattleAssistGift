@@ -364,13 +364,13 @@
       <param name="outname"></param>
     </member>
     <member name="T:BaseMod.PassiveAbilityExtension">
-      <summary></summary>
+      <summary>パッシブ (<see cref="T:BattleUnitPassiveDetail" /> クラス) に対する拡張メソッドを提供します。</summary>
     </member>
     <member name="M:BaseMod.PassiveAbilityExtension.FindPassive``1(BattleUnitPassiveDetail)">
-      <summary></summary>
-      <typeparam name="T"></typeparam>
+      <summary>指定した型と一致するパッシブを検索し、最初に一致したパッシブを返します。</summary>
+      <typeparam name="T">検索するパッシブの型。</typeparam>
       <param name="passiveDetail"></param>
-      <returns></returns>
+      <returns>検索条件に一致したパッシブ。一致しなかった場合は null。</returns>
     </member>
     <member name="M:BaseMod.PassiveAbilityExtension.FindPassives``1(BattleUnitPassiveDetail)">
       <summary></summary>

@@ -7057,6 +7057,68 @@
     <member name="F:Rarity.Unique">
       <summary>芸術</summary>
     </member>
+    <member name="T:Singleton`1">
+      <summary>クラスに Singleton パターンを実装します。</summary>
+      <typeparam name="T">Singleton パターンを適用する型。クラス型であり、引数なしのデフォルト コンストラクタを持つ必要があります。</typeparam>
+    </member>
+    <member name="P:Singleton`1.Instance">
+      <summary>このクラスの唯一のインスタンスを取得します。</summary>
+    </member>
+    <member name="T:StageClassInfoList">
+      <summary>舞台情報 XML データを格納するリストです。</summary>
+    </member>
+    <member name="M:StageClassInfoList.#ctor">
+      <summary></summary>
+    </member>
+    <member name="M:StageClassInfoList.AddStageByMod(System.String,System.Collections.Generic.List{StageClassInfo})">
+      <summary></summary>
+      <param name="workshopId"></param>
+      <param name="list"></param>
+    </member>
+    <member name="M:StageClassInfoList.GetAllDataList">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:StageClassInfoList.GetAllWorkshopData">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="M:StageClassInfoList.GetData(System.Int32)">
+      <summary>指定した数値形式の舞台 ID と一致する舞台情報 XML データをこのリストから取得します。</summary>
+      <param name="id">取得する舞台情報 XML データの数値形式の舞台 ID。</param>
+      <returns>指定した ID に最初に一致する舞台情報 XML データ。リストに存在しない場合は null。</returns>
+    </member>
+    <member name="M:StageClassInfoList.GetData(LorId)">
+      <summary>指定した LorId 形式の舞台 ID と一致する舞台情報 XML データをこのリストから取得します。</summary>
+      <param name="id">取得する舞台情報 XML データの LorId 形式の舞台 ID。</param>
+      <returns>指定した ID に最初に一致する舞台情報 XML データ。リストに存在しない場合は null。</returns>
+    </member>
+    <member name="M:StageClassInfoList.GetDataFromBooks(System.Collections.Generic.List{DropBookXmlInfo})">
+      <summary></summary>
+      <param name="books"></param>
+      <returns></returns>
+    </member>
+    <member name="M:StageClassInfoList.GetDataListByChapter(System.Int32)">
+      <summary></summary>
+      <param name="chapter"></param>
+      <returns></returns>
+    </member>
+    <member name="M:StageClassInfoList.GetWorkshopDataFromBooks(System.Collections.Generic.List{DropBookXmlInfo})">
+      <summary></summary>
+      <param name="books"></param>
+      <returns></returns>
+    </member>
+    <member name="M:StageClassInfoList.Init(System.Collections.Generic.List{StageClassInfo})">
+      <summary></summary>
+      <param name="list"></param>
+    </member>
+    <member name="M:StageClassInfoList.IsSubscribeWorkshopInv">
+      <summary></summary>
+      <returns></returns>
+    </member>
+    <member name="P:StageClassInfoList.recipeCondList">
+      <summary></summary>
+    </member>
     <member name="T:StatBonus">
       <summary>能力値に付与するボーナス値を表します。</summary>
     </member>
