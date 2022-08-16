@@ -1,6 +1,6 @@
 ﻿using BattleAssistGift.Refrection;
 
-namespace BattleAssistGift.Resources
+namespace BattleAssistGift.Statics
 {
     /// <summary>
     /// バトル ページ ID を表します。

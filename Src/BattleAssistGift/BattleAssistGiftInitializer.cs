@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using BaseMod;
 using BattleAssistGift.Refrection;
-using BattleAssistGift.Resources;
+using BattleAssistGift.Statics;
 using HarmonyLib;
 
 namespace BattleAssistGift
@@ -18,22 +17,12 @@ namespace BattleAssistGift
             try
             {
                 new Harmony(AssemblyInfo.Name).PatchAll();
-
-                StartupModSettingsFile();
+                new MoonlightBlessingController().CreateSettingsFile();
             }
             catch (Exception ex)
             {
                 Log.Instance.ErrorOnExceptionThrown(ex);
             }
-        }
-
-        /// <summary>
-        /// MOD 設定ファイルが存在しない場合は既定の内容で作成し、使用できる状態にします。
-        /// </summary>
-        private void StartupModSettingsFile()
-        {
-            if (File.Exists(ReferencePath.ModSettingsFile)) { return; }
-            File.WriteAllText(ReferencePath.ModSettingsFile, Properties.Resources.ModSettings);
         }
     }
 

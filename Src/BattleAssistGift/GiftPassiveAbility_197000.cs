@@ -18,7 +18,7 @@ namespace BattleAssistGift.Passives
                     return;
                 }
 
-                var blessing = new MoonlightBlessing(Factory.CreateModSettingsRepository());
+                var blessing = new MoonlightBlessingController();
                 blessing.ApplyEffectAll();
                 blessing.AddReloadCardAllPlayers();
             }

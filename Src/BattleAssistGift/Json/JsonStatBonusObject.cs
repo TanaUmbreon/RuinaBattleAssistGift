@@ -1,9 +1,9 @@
-﻿namespace BattleAssistGift.DataAccess
+﻿namespace BattleAssistGift.Json
 {
     /// <summary>
     /// 能力値ボーナスを格納します。
     /// </summary>
-    public class JsonStatBonusObject
+    public class JsonStatBonusObject : JsonObject
     {
         /// <summary>
         /// 体力の増加ボーナス量を取得または設定します。

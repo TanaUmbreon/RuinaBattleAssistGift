@@ -1,9 +1,9 @@
-﻿namespace BattleAssistGift.DataAccess
+﻿namespace BattleAssistGift.Json
 {
     /// <summary>
-    /// 各キャラクター毎に適用する効果名を格納します。
+    /// 各キャラクター毎に適用する効果名を格納する JSON オブジェクトです。
     /// </summary>
-    public class JsonApplyingEffectNameObject
+    public class JsonApplyingEffectNameObject : JsonObject
     {
         /// <summary>
         /// 1 番目の味方キャラクターに適用する効果名を取得または設定します。

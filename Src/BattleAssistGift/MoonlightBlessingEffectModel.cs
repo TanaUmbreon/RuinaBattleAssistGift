@@ -4,12 +4,12 @@ using UnityEngine;
 namespace BattleAssistGift.Models
 {
     /// <summary>
-    /// 戦闘表象「月光の輪」によってキャラクターに適用させる効果を実装します。
+    /// キャラクターに適用させる「月光の祝福」の効果を実装します。
     /// </summary>
-    public class EffectModel
+    public class MoonlightBlessingEffectModel
     {
         /// <summary>効果なしを表します。</summary>
-        public static readonly EffectModel None = new EffectModel("None");
+        public static readonly MoonlightBlessingEffectModel None = new MoonlightBlessingEffectModel("None");
 
         private const int MinHpAdder = 0;
         private const int MaxHpAdder = 500;
@@ -25,8 +25,6 @@ namespace BattleAssistGift.Models
         private const int MaxPlayPointRecover = 10;
         private const int MinBufStack = 0;
         private const int MaxBufStack = 50;
-
-        #region プロパティ
 
         /// <summary>
         /// 効果名を取得します。
@@ -64,85 +62,83 @@ namespace BattleAssistGift.Models
         public int StrengthStack { get; }
 
         /// <summary>
-        /// 毎幕のの付与数を取得します。
+        /// 毎幕の虚弱の付与数を取得します。
         /// </summary>
         public int WeakStack { get; }
 
         /// <summary>
-        /// 毎幕のの付与数を取得します。
+        /// 毎幕の忍耐の付与数を取得します。
         /// </summary>
         public int EnduranceStack { get; }
 
         /// <summary>
-        /// 毎幕のの付与数を取得します。
+        /// 毎幕の武装解除の付与数を取得します。
         /// </summary>
         public int DisarmStack { get; }
 
         /// <summary>
-        /// 毎幕のの付与数を取得します。
+        /// 毎幕のクイックの付与数を取得します。
         /// </summary>
         public int QuicknessStack { get; }
 
         /// <summary>
-        /// 毎幕のの付与数を取得します。
+        /// 毎幕の束縛の付与数を取得します。
         /// </summary>
         public int BindingStack { get; }
 
         /// <summary>
-        /// 毎幕のの付与数を取得します。
+        /// 毎幕の保護の付与数を取得します。
         /// </summary>
         public int ProtectionStack { get; }
 
         /// <summary>
-        /// 毎幕のの付与数を取得します。
+        /// 毎幕の脆弱の付与数を取得します。
         /// </summary>
         public int VulnerableStack { get; }
 
         /// <summary>
-        /// 毎幕のの付与数を取得します。
+        /// 毎幕の混乱保護の付与数を取得します。
         /// </summary>
         public int BreakProtectionStack { get; }
 
         /// <summary>
-        /// 毎幕のの付与数を取得します。
+        /// 毎幕の火傷の付与数を取得します。
         /// </summary>
         public int BurnStack { get; }
 
         /// <summary>
-        /// 毎幕のの付与数を取得します。
+        /// 毎幕の麻痺の付与数を取得します。
         /// </summary>
         public int ParalysisStack { get; }
 
         /// <summary>
-        /// 毎幕のの付与数を取得します。
+        /// 毎幕の出血の付与数を取得します。
         /// </summary>
         public int BleedingStack { get; }
 
-        #endregion
-
         /// <summary>
-        /// <see cref="EffectModel"/> の新しいインスタンスを生成します。
+        /// <see cref="MoonlightBlessingEffectModel"/> の新しいインスタンスを生成します。
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="hpAdder"></param>
-        /// <param name="breakGageAdder"></param>
-        /// <param name="playPointAdder"></param>
-        /// <param name="hpRecover"></param>
-        /// <param name="breakRecover"></param>
-        /// <param name="playPointRecover"></param>
-        /// <param name="strengthStack"></param>
-        /// <param name="weakStack"></param>
-        /// <param name="enduranceStack"></param>
-        /// <param name="disarmStack"></param>
-        /// <param name="quicknessStack"></param>
-        /// <param name="bindingStack"></param>
-        /// <param name="protectionStack"></param>
-        /// <param name="vulnerableStack"></param>
-        /// <param name="breakProtectionStack"></param>
-        /// <param name="burnStack"></param>
-        /// <param name="paralysisStack"></param>
-        /// <param name="bleedingStack"></param>
-        public EffectModel(
+        /// <param name="name">効果名。</param>
+        /// <param name="hpAdder">体力の最大値の増加量。</param>
+        /// <param name="breakGageAdder">混乱抵抗値の最大値の増加量。</param>
+        /// <param name="playPointAdder">光の最大値の増加量。</param>
+        /// <param name="hpRecover">毎幕の体力の回復量。</param>
+        /// <param name="breakRecover">毎幕の混乱抵抗値の回復量。</param>
+        /// <param name="playPointRecover">毎幕の光の回復量。</param>
+        /// <param name="strengthStack">毎幕のパワーの付与数。</param>
+        /// <param name="weakStack">毎幕の虚弱の付与数。</param>
+        /// <param name="enduranceStack">毎幕の忍耐の付与数。</param>
+        /// <param name="disarmStack">毎幕の武装解除の付与数。</param>
+        /// <param name="quicknessStack">毎幕のクイックの付与数。</param>
+        /// <param name="bindingStack">毎幕の束縛の付与数。</param>
+        /// <param name="protectionStack">毎幕の保護の付与数。</param>
+        /// <param name="vulnerableStack">毎幕の脆弱の付与数。</param>
+        /// <param name="breakProtectionStack">毎幕の混乱保護の付与数。</param>
+        /// <param name="burnStack">毎幕の火傷の付与数。</param>
+        /// <param name="paralysisStack">毎幕の麻痺の付与数。</param>
+        /// <param name="bleedingStack">毎幕の出血の付与数。</param>
+        public MoonlightBlessingEffectModel(
             string name,
             int hpAdder = 0,
             int breakGageAdder = 0,
@@ -163,7 +159,7 @@ namespace BattleAssistGift.Models
             int paralysisStack = 0,
             int bleedingStack = 0)
         {
-            Name = name ?? throw new ArgumentNullException(nameof(name));
+            Name = name ?? "";
 
             StatBonus = new StatBonus()
             {
@@ -250,7 +246,7 @@ namespace BattleAssistGift.Models
         /// </summary>
         /// <param name="target">能力値を更新する対象のキャラクター。</param>
         /// <param name="oldEffect">前回適用した効果。</param>
-        public void UpdateStat(BattleUnitModel target, EffectModel oldEffect)
+        public void UpdateStat(BattleUnitModel target, MoonlightBlessingEffectModel oldEffect)
         {
             UpdateHp(target, StatBonus.hpAdder - oldEffect.StatBonus.hpAdder);
             UpdateBreak(target, StatBonus.breakAdder - oldEffect.StatBonus.breakAdder);
@@ -310,7 +306,7 @@ namespace BattleAssistGift.Models
         /// </summary>
         /// <param name="target">状態の付与数を更新する対象のキャラクター。</param>
         /// <param name="oldEffect">前回適用した効果。</param>
-        public void UpdateBufs(BattleUnitModel target, EffectModel oldEffect)
+        public void UpdateBufs(BattleUnitModel target, MoonlightBlessingEffectModel oldEffect)
         {
             UpdateBuf(target, KeywordBuf.Strength, StrengthStack - oldEffect.StrengthStack);
             UpdateBuf(target, KeywordBuf.Weak, WeakStack - oldEffect.WeakStack);

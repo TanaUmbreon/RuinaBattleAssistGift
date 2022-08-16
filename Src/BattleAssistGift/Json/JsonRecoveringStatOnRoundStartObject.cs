@@ -1,9 +1,9 @@
-﻿namespace BattleAssistGift.DataAccess
+﻿namespace BattleAssistGift.Json
 {
     /// <summary>
     /// 毎幕回復するステータスを格納します。
     /// </summary>
-    public class JsonRecoveringStatOnRoundStartObject
+    public class JsonRecoveringStatOnRoundStartObject : JsonObject
     {
         /// <summary>
         /// 体力の回復量を取得または設定します。

@@ -1,11 +1,11 @@
 ﻿using BattleAssistGift.Models;
 
-namespace BattleAssistGift.DataAccess
+namespace BattleAssistGift.Json
 {
     /// <summary>
     /// 各キャラクターに適用できる効果を格納します。
     /// </summary>
-    public class JsonEffectObject
+    public class JsonEffectObject : JsonObject
     {
         /// <summary>
         /// 効果名を取得または設定します。
@@ -30,36 +30,27 @@ namespace BattleAssistGift.DataAccess
         /// <summary>
         /// 値が null のプロパティを初期化します。
         /// </summary>
-        public void InitializeNullProperties()
+        public override void OnDeserialize()
         {
-            if (Name == null)
-            {
-                Name = "";
-            }
+            Name = Name ?? "";
 
-            if (StatBonus == null)
-            {
-                StatBonus = new JsonStatBonusObject();
-            }
+            StatBonus = StatBonus ?? new JsonStatBonusObject();
+            StatBonus.OnDeserialize();
 
-            if (RecoveringStatOnRoundStart == null)
-            {
-                RecoveringStatOnRoundStart = new JsonRecoveringStatOnRoundStartObject();
-            }
+            RecoveringStatOnRoundStart = RecoveringStatOnRoundStart ?? new JsonRecoveringStatOnRoundStartObject();
+            RecoveringStatOnRoundStart.OnDeserialize();
 
-            if (AddingBufsOnRoundStart == null)
-            {
-                AddingBufsOnRoundStart = new JsonAddingBufsOnRoundStartObject();
-            }
+            AddingBufsOnRoundStart = AddingBufsOnRoundStart ?? new JsonAddingBufsOnRoundStartObject();
+            AddingBufsOnRoundStart.OnDeserialize();
         }
 
         /// <summary>
-        /// 現在のインスタンスの値を元に <see cref="EffectModel"/> のインスタンスを生成します。
+        /// 現在のインスタンスの値を元に <see cref="MoonlightBlessingEffectModel"/> のインスタンスを生成します。
         /// </summary>
-        /// <returns></returns>
-        public EffectModel CreateEffectModel()
+        /// <returns>このインスタンスの内容と同等の <see cref="MoonlightBlessingEffectModel"/>。</returns>
+        public MoonlightBlessingEffectModel CreateEffectModel()
         {
-            return new EffectModel(
+            return new MoonlightBlessingEffectModel(
                 name: Name,
                 hpAdder: StatBonus.HpAdder,
                 breakGageAdder: StatBonus.BreakGageAdder,

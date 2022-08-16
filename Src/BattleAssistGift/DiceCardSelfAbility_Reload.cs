@@ -1,5 +1,4 @@
 ﻿using System;
-using BattleAssistGift.DataAccess;
 
 namespace BattleAssistGift.CardAbilities
 {
@@ -15,7 +14,7 @@ namespace BattleAssistGift.CardAbilities
         {
             try
             {
-                var blessing = new MoonlightBlessing(Container.CreateModSettingsRepository());
+                var blessing = new MoonlightBlessingController();
                 blessing.ApplyEffectAll();
                 blessing.AddReloadCard(unit);
             }

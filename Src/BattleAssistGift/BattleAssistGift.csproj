@@ -64,27 +64,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bufs\BattleUnitBuf_MoonlightBlessing.cs" />
-    <Compile Include="CardAbilities\DiceCardSelfAbility_Reload.cs" />
-    <Compile Include="DataAccess\INormalizable.cs" />
-    <Compile Include="DataAccess\Normalizer.cs" />
-    <Compile Include="Models\IModSettingsRepository.cs" />
-    <Compile Include="DataAccess\JsonAddingBufsOnRoundStartObject.cs" />
-    <Compile Include="DataAccess\JsonApplyingEffectNameObject.cs" />
-    <Compile Include="DataAccess\JsonEffectObject.cs" />
-    <Compile Include="DataAccess\JsonModSettingsRepository.cs" />
-    <Compile Include="DataAccess\JsonModSettingsObject.cs" />
-    <Compile Include="DataAccess\JsonRecoveringStatOnRoundStartObject.cs" />
-    <Compile Include="DataAccess\JsonStatBonusObject.cs" />
-    <Compile Include="Models\EffectModel.cs" />
-    <Compile Include="Models\MoonlightBlessing.cs" />
-    <Compile Include="Passives\GiftPassiveAbility_197000.cs" />
+    <Compile Include="BattleUnitBuf_MoonlightBlessing.cs" />
+    <Compile Include="DiceCardSelfAbility_Reload.cs" />
+    <Compile Include="Json\JsonObject.cs" />
+    <Compile Include="Json\JsonDeserialize.cs" />
+    <Compile Include="Json\JsonAddingBufsOnRoundStartObject.cs" />
+    <Compile Include="Json\JsonApplyingEffectNameObject.cs" />
+    <Compile Include="Json\JsonEffectObject.cs" />
+    <Compile Include="Json\JsonModSettingsObject.cs" />
+    <Compile Include="Json\JsonRecoveringStatOnRoundStartObject.cs" />
+    <Compile Include="Json\JsonStatBonusObject.cs" />
+    <Compile Include="MoonlightBlessingEffectModel.cs" />
+    <Compile Include="GiftPassiveAbility_197000.cs" />
     <Compile Include="Refrection\AssemblyInfo.cs" />
     <Compile Include="BattleAssistGiftInitializer.cs" />
-    <Compile Include="Resources\CardId.cs" />
-    <Compile Include="Resources\ExtraTextId.cs" />
-    <Compile Include="Resources\GiftId.cs" />
-    <Compile Include="Resources\ReferencePath.cs" />
+    <Compile Include="Statics\CardId.cs" />
+    <Compile Include="Statics\ExtraTextId.cs" />
+    <Compile Include="Statics\GiftId.cs" />
+    <Compile Include="Statics\ReferencePath.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -95,7 +92,7 @@
     <Compile Include="Refrection\LoadedAssembly.cs" />
     <Compile Include="Refrection\EnumControler.cs" />
     <Compile Include="Refrection\InstanceControler.cs" />
-    <Compile Include="Container.cs" />
+    <Compile Include="MoonlightBlessingController.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

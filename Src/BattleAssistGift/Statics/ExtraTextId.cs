@@ -1,4 +1,4 @@
-﻿namespace BattleAssistGift.Resources
+﻿namespace BattleAssistGift.Statics
 {
     /// <summary>
     /// 汎用テキスト ID を表します。

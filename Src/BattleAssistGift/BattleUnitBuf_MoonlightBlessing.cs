@@ -14,22 +14,22 @@ namespace BattleAssistGift
         private const int MaxStack = 0;
 
         /// <summary>適用中の効果</summary>
-        private EffectModel effect;
+        private MoonlightBlessingEffectModel _effect;
         /// <summary>状態の付与数更新を行うことができる事を示すフラグ</summary>
-        private bool canUpdateBufs = false;
+        private bool _canUpdateBufs = false;
 
         public override BufPositiveType positiveType => BufPositiveType.None;
-        public override bool Hide => effect == EffectModel.None;
-        public override string bufActivatedText => Singleton<BattleEffectTextsXmlList>.Instance.GetEffectTextDesc(keywordId, effect.Name);
-        protected override string keywordId => "MoonlightRing";
-        protected override string keywordIconId => "MoonlightRingBuf";
+        public override bool Hide => _effect == MoonlightBlessingEffectModel.None;
+        public override string bufActivatedText => Singleton<BattleEffectTextsXmlList>.Instance.GetEffectTextDesc(keywordId, _effect.Name);
+        protected override string keywordId => "MoonlightBlessing";
+        protected override string keywordIconId => "MoonlightBlessingBuf";
 
         /// <summary>
         /// <see cref="BattleUnitBuf_MoonlightBlessing"/> の新しいインスタンスを生成します。
         /// </summary>
         public BattleUnitBuf_MoonlightBlessing()
         {
-            effect = EffectModel.None;
+            _effect = MoonlightBlessingEffectModel.None;
             stack = MaxStack;
         }
 
@@ -37,18 +37,18 @@ namespace BattleAssistGift
             => stack = MaxStack;
 
         public override StatBonus GetStatBonus()
-            => effect.StatBonus;
+            => _effect.StatBonus;
 
         public override int MaxPlayPointAdder()
-            => effect.PlayPointAdder;
+            => _effect.PlayPointAdder;
 
         public override void OnRoundStart()
         {
             try
             {
-                effect.RecoverTo(_owner);
-                effect.AddBufsTo(_owner);
-                canUpdateBufs = true;
+                _effect.RecoverTo(_owner);
+                _effect.AddBufsTo(_owner);
+                _canUpdateBufs = true;
             }
             catch (Exception ex)
             {
@@ -60,29 +60,29 @@ namespace BattleAssistGift
         /// 指定した効果を適用します。
         /// </summary>
         /// <param name="newEffect"></param>
-        public void Apply(EffectModel newEffect)
+        public void Apply(MoonlightBlessingEffectModel newEffect)
         {
             if (newEffect == null) { throw new ArgumentNullException(nameof(newEffect)); }
 
-            EffectModel oldEffect = ChangeEffect(newEffect);
+            MoonlightBlessingEffectModel oldEffect = ChangeEffect(newEffect);
             newEffect.UpdateStat(_owner, oldEffect);
 
             // 最初の幕はOnWaveStartとOnRoundStartで二重に状態が付与されてしまうのでそれを回避
-            if (canUpdateBufs)
+            if (_canUpdateBufs)
             {
                 newEffect.UpdateBufs(_owner, oldEffect);
             }
         }
 
         /// <summary>
-        /// <see cref="effect"/> フィールドの値を指定した効果に変更し、状態アイコンの表示・非表示を切り替えます。
+        /// <see cref="_effect"/> フィールドの値を指定した効果に変更し、状態アイコンの表示・非表示を切り替えます。
         /// </summary>
         /// <param name="newEffect"></param>
         /// <returns>変更前の効果。</returns>
-        private EffectModel ChangeEffect(EffectModel newEffect)
+        private MoonlightBlessingEffectModel ChangeEffect(MoonlightBlessingEffectModel newEffect)
         {
-            EffectModel oldEffect = effect;
-            effect = newEffect;
+            MoonlightBlessingEffectModel oldEffect = _effect;
+            _effect = newEffect;
 
             new InstanceControler(this).SetField("_iconInit", false);
             GetBufIcon();

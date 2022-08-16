@@ -1,9 +1,9 @@
-﻿namespace BattleAssistGift.DataAccess
+﻿namespace BattleAssistGift.Json
 {
     /// <summary>
     /// 毎幕付与する状態とその付与数を格納します。
     /// </summary>
-    public class JsonAddingBufsOnRoundStartObject
+    public class JsonAddingBufsOnRoundStartObject : JsonObject
     {
         /// <summary>
         /// 毎幕付与するパワーの数を取得または設定します。

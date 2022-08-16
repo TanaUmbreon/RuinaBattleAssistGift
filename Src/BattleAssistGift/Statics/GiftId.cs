@@ -1,4 +1,4 @@
-﻿namespace BattleAssistGift.Resources
+﻿namespace BattleAssistGift.Statics
 {
     /// <summary>
     /// 戦闘表象 ID を表します。

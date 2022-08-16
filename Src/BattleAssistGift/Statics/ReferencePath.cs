@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using BattleAssistGift.Refrection;
 
-namespace BattleAssistGift.Resources
+namespace BattleAssistGift.Statics
 {
     /// <summary>
     /// 外部ファイルまたは外部フォルダーの参照パスを表します。
