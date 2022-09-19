@@ -14,7 +14,7 @@ namespace BattleAssistGift
             {
                 if (!owner.UnitData.unitData.isSephirah)
                 {
-                    Log.Instance.WarningWithCaller($"指定司書以外が装着しているため効果は発揮しません。 (OwnerSephirah: {owner.UnitData.unitData.OwnerSephirah}, name: '{owner.UnitData.unitData.name}')");
+                    Log.Instance.WarningWithCaller($"Moonlight Blessing is not effective because Assistant Librarian is equipped with it. (unitData: {{ OwnerSephirah: {owner.UnitData.unitData.OwnerSephirah}, name: '{owner.UnitData.unitData.name}' }})");
                     return;
                 }
 

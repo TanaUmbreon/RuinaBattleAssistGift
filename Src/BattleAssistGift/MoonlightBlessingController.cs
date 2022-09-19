@@ -27,14 +27,9 @@ namespace BattleAssistGift
         /// </summary>
         public void CreateSettingsFile()
         {
-            if (_file.Exists)
-            {
-                Log.Instance.DebugWithCaller("Mod settings file exsits.");
-                return;
-            }
+            if (_file.Exists) { return; }
 
             File.WriteAllText(_file.FullName, Properties.Resources.ModSettings);
-            Log.Instance.DebugWithCaller("Mod settings file does not exsit, so a new one was created.");
         }
 
         /// <summary>
