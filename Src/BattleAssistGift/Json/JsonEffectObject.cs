@@ -1,6 +1,4 @@
-﻿using BattleAssistGift.Models;
-
-namespace BattleAssistGift.Json
+﻿namespace BattleAssistGift.Json
 {
     /// <summary>
     /// 各キャラクターに適用できる効果を格納します。

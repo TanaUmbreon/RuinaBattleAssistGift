@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace BattleAssistGift.Models
+namespace BattleAssistGift
 {
     /// <summary>
     /// キャラクターに適用させる「月光の祝福」の効果を実装します。

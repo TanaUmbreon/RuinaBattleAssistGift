@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BattleAssistGift.Passives
+namespace BattleAssistGift
 {
     /// <summary>
     /// 戦闘表象「月光の祝福」のパッシブ。

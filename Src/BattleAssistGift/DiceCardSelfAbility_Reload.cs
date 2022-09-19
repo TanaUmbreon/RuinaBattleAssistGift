@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BattleAssistGift.CardAbilities
+namespace BattleAssistGift
 {
     /// <summary>
     /// バトルページ効果「設定リロード」

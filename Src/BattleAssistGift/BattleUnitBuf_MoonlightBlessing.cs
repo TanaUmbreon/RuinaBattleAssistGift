@@ -1,5 +1,4 @@
 ﻿using System;
-using BattleAssistGift.Models;
 using BattleAssistGift.Refrection;
 
 namespace BattleAssistGift
