@@ -65,7 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BattleUnitBuf_MoonlightBlessing.cs" />
-    <Compile Include="DiceCardSelfAbility_Reload.cs" />
+    <Compile Include="DiceCardSelfAbility_reload.cs" />
     <Compile Include="Json\JsonObject.cs" />
     <Compile Include="Json\JsonDeserialize.cs" />
     <Compile Include="Json\JsonAddingBufsOnRoundStartObject.cs" />

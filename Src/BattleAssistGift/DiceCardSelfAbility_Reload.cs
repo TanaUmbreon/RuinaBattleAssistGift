@@ -6,9 +6,9 @@ namespace BattleAssistGift.CardAbilities
     /// バトルページ効果「設定リロード」
     /// 「月光の祝福」の効果設定を再ロードして、全てのキャラクターに効果を適用しなおす。
     /// </summary>
-    public class DiceCardSelfAbility_Reload : DiceCardSelfAbilityBase
+    public class DiceCardSelfAbility_reload : DiceCardSelfAbilityBase
     {
-        public override string[] Keywords => new[] { "Reload" };
+        public override string[] Keywords => new[] { "reload" };
 
         public override void OnUseInstance(BattleUnitModel unit, BattleDiceCardModel self, BattleUnitModel targetUnit)
         {
