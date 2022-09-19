@@ -16,6 +16,12 @@ namespace BattleAssistGift
         {
             try
             {
+                // カスタム戦闘表象の画像データ読み込みはBaseModで行われていないのでここで行う
+                if (CustomGiftAppearance.GiftArtWork == null)
+                {
+                    CustomGiftAppearance.GetGiftArtWork();
+                }
+
                 new Harmony(AssemblyInfo.Name).PatchAll();
                 new MoonlightBlessingController().CreateSettingsFile();
             }
