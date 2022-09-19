@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BattleCardAbilityDescRoot>
+  <BattleCardAbility ID="reload">
+    <Desc>[装着時発動] 設定リロードを行う</Desc>
+  </BattleCardAbility>
+</BattleCardAbilityDescRoot>

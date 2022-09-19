@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BattleEffectTextRoot>
+  <effectTextList>
+    <BattleEffectText ID="MoonlightBlessing">
+      <Name>月光の祝福</Name>
+      <Desc>カスタマイズされた様々な効果を発揮する
+(効果名：{0})</Desc>
+    </BattleEffectText>
+    <BattleEffectText ID="reload">
+      <Name>設定リロード</Name>
+      <Desc>「月光の祝福」の効果設定を再読み込みして、全てのキャラクターに効果を再適用する</Desc>
+    </BattleEffectText>
+  </effectTextList>
+</BattleEffectTextRoot>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiceCardXmlRoot>
+  <Card ID="197">
+    <Name>SettingsReload</Name>
+    <Artwork>SettingsReload</Artwork>
+    <Rarity>Common</Rarity>
+    <Option>Personal</Option>
+    <Spec Range="Instance" Cost="0" />
+    <Script>reload</Script>
+    <ScriptDesc />
+    <BehaviourList />
+    <Chapter>1</Chapter>
+    <Priority>0</Priority>
+  </Card>
+</DiceCardXmlRoot>

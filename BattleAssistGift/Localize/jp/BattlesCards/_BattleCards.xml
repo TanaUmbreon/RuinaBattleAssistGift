@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BattleCardDescRoot>
+  <cardDescList>
+    <BattleCardDesc ID="197">
+      <LocalizedName>設定リロード</LocalizedName>
+      <Ability />
+    </BattleCardDesc>
+  </cardDescList>
+</BattleCardDescRoot>
