@@ -83,7 +83,7 @@ namespace BattleAssistGift
             MoonlightBlessingEffectModel oldEffect = _effect;
             _effect = newEffect;
 
-            new InstanceControler(this).SetField("_iconInit", false);
+            new InstanceControler(this, GetType().BaseType).SetField("_iconInit", false);
             GetBufIcon();
 
             return oldEffect;

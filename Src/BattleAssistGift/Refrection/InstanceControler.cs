@@ -9,17 +9,18 @@ namespace BattleAssistGift.Refrection
 	public class InstanceControler
 	{
 		private readonly object _target;
-		/// <summary>アクセス対象の列挙型の型宣言</summary>
+		/// <summary>アクセス対象の型宣言</summary>
 		private readonly Type _targetType;
 
 		/// <summary>
 		/// 指定したインスタンスを対象とした <see cref="InstanceControler"/> の新しいインスタンスを生成します。
 		/// </summary>
 		/// <param name="target">対象のインスタンス。</param>
-		public InstanceControler(object target)
+		/// <param name="targetType">扱う対象の型。null の場合は <paramref name="target"/> に指定したインスタンスの型として扱います。</param>
+		public InstanceControler(object target, Type targetType = null)
 		{
 			_target = target ?? throw new ArgumentNullException(nameof(target));
-			_targetType = target.GetType();
+			_targetType = targetType ?? target.GetType();
 		}
 
 		/// <summary>
