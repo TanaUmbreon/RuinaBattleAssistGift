@@ -49,7 +49,7 @@ namespace BattleAssistGift
         {
             if (paramName == null) { throw new ArgumentNullException(paramName); }
 
-            Info($"{{\"{paramName}\": {Expand(obj)}}}");
+            Debug($"{{\"{paramName}\": {Expand(obj)}}}");
         }
 
         /// <summary>
